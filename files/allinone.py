@@ -15,6 +15,7 @@ from torch.utils.data import DataLoader, Dataset
 from torch import optim
 from torchvision.datasets import ImageFolder
 from torchvision import transforms
+from save import *
 # from torchsummary import summary
 
 import time
@@ -374,16 +375,7 @@ def load_checkpoint(filepath):
 
 if __name__ == '__main__':  
     model = train(model, criterion, optimizer, epochs, dataloaders, device)
-    torch.save({
-            'model' : Net(),
-            'epoch' : epochs,
-            'model_state_dict': model.state_dict(),
-            'optimizer' : optimizer,
-            'optimizer_state_dict': optimizer.state_dict(),
-            'criterion' : criterion,
-            'device' : device
-            }, 'base_model5.tar')
-    print('model saved')
+    save(Net, epochs, optimizer, model, criterion, device)
 
     # model, optimizer, criterion, epoch = load_checkpoint('base_model5.tar')
     # test_model(model, 2)

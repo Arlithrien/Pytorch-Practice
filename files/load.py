@@ -71,5 +71,5 @@ def load_checkpoint(filepath):
 
 
 if __name__ == '__main__':
-    model, optimizer, criterion, epoch = load_checkpoint('base_model5.tar')
+    model, optimizer, criterion, epoch = load_checkpoint('base_model6.tar')
     test_model(model, 4)
